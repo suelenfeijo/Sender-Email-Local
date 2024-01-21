@@ -7,6 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
+import org.springframework.scheduling.annotation.Async;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -24,6 +25,7 @@ public class EmailService implements EmailSender{
     private final JavaMailSender mailSender;
 
 	@Override
+	@Async
 	public void send(String to, String email) {
 		
 		
@@ -33,11 +35,11 @@ public class EmailService implements EmailSender{
                   new MimeMessageHelper(mimeMessage, "utf-8");
           helper.setText(email, true);
           helper.setTo(to);
-          helper.setSubject("Confirm your email");
-          helper.setFrom("hello@amigoscode.com");
+          helper.setSubject("Confirme seu email");
+          helper.setFrom("suelenfeijobr@gmail.com");
 	 } catch (MessagingException e) {
          LOGGER.error("falha ao enviar o email", e);
-         throw new IllegalStateException("failed to send email");
+         throw new IllegalStateException("falha ao enviar email");
      }
       
 	}
