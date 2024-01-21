@@ -1,5 +1,7 @@
 package com.suelen.springmail.registration;
 
+import javax.transaction.Transactional;
+
 import org.springframework.stereotype.Service;
 
 import com.suelen.springmail.appuser.AppUser;
@@ -19,6 +21,9 @@ public class RegistrationService {
 	private final EmailValidator emailValidator;
 	private final AppUserService appUserService;
 
+	
+	
+	@Transactional
 	public String register(RegistrationRequest request) {
 		boolean isValidEmail = emailValidator.test(request.getEmail());
 		if (!isValidEmail) {
