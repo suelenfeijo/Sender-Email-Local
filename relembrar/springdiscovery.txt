@@ -1,0 +1,10 @@
+descobrindo um endpoint a mais...
+tirando o v1, da pra ver o retorno do form de login. 
+
+localhost:8080/api/registration/hello
+
+
+
+
+assim não retorna no postman ( que é o valor do path do postmapping)
+localhost:8080/api/v1/registration/hello
