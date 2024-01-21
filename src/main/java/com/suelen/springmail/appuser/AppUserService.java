@@ -1,5 +1,7 @@
 package com.suelen.springmail.appuser;
 
+import java.util.UUID;
+
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -17,7 +19,7 @@ public class AppUserService implements UserDetailsService {
 
     
     private final AppUserRepository appUserRepository;
-    
+
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
 //    private final ConfirmationTokenService confirmationTokenService;
 
@@ -30,34 +32,38 @@ public class AppUserService implements UserDetailsService {
                                 String.format(USER_NOT_FOUND_MSG, email)));
     }
 
- /*   public String signUpUser(AppUser appUser) {
+    
+    public String signUpUser(AppUser appUser) {
         boolean userExists = appUserRepository
                 .findByEmail(appUser.getEmail())
                 .isPresent();
 
         if (userExists) {
-            // TODO check of attributes are the same and
-            // TODO if email not confirmed send confirmation email.
+            // TODO verifica se email já existe
+            // TODO se o email não encontrado, manda o email.
 
-            throw new IllegalStateException("email already taken");
+            throw new IllegalStateException("e-mail já recebido");
         }
-
-        String encodedPassword = bCryptPasswordEncoder
+    
+       String encodedPassword = bCryptPasswordEncoder
                 .encode(appUser.getPassword());
-
         appUser.setPassword(encodedPassword);
-
         appUserRepository.save(appUser);
-
         String token = UUID.randomUUID().toString();
+        
+        return "email enviado! ";
+    }
 
-        ConfirmationToken confirmationToken = new ConfirmationToken(
+
+
+   /*     ConfirmationToken confirmationToken = new ConfirmationToken(
                 token,
                 LocalDateTime.now(),
                 LocalDateTime.now().plusMinutes(15),
                 appUser
-        );
-
+        );*/
+        
+/*
         confirmationTokenService.saveConfirmationToken(
                 confirmationToken);
 
