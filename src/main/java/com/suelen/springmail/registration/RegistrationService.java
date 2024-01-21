@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 import com.suelen.springmail.appuser.AppUser;
 import com.suelen.springmail.appuser.AppUserRole;
 import com.suelen.springmail.appuser.AppUserService;
+import com.suelen.springmail.email.EmailSender;
+import com.suelen.springmail.registration.token.ConfirmationTokenService;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -20,6 +22,8 @@ public class RegistrationService {
 
 	private final EmailValidator emailValidator;
 	private final AppUserService appUserService;
+    private final EmailSender emailSender;
+    private final ConfirmationTokenService confirmationTokenService;
 
 	
 	
