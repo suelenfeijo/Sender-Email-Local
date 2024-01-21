@@ -8,3 +8,29 @@ localhost:8080/api/registration/hello
 
 assim não retorna no postman ( que é o valor do path do postmapping)
 localhost:8080/api/v1/registration/hello
+
+
+
+A consulta de pesquisa "TODO: Regex para validar email"
+Um padrão regex é uma sequência de caracteres que 
+define um padrão de pesquisa, que pode ser 
+usado para combinar e extrair dados específicos
+de um texto maior. Nesse caso, o padrão regex
+seria usado para verificar se uma determinada 
+string corresponde ao formato de um endereço
+de e-mail válido.
+   
+IllegalArgumentException X IllegalStateException
+   
+Em resumo, a diferença entre IllegalArgumentException e IllegalStateException
+é a semântica de como o objeto está no estado inválido. IllegalArgumentException 
+indica que o objeto está no estado errado porque os argumentos passados para 
+o método não são válidos, enquanto IllegalStateException indica que o 
+objeto está no estado errado porque ele está em um estado incompatível
+com a operação que está sendo executada.
+
+Ou seja, IllegalStateException -> contém atributos/condições que não se adequa ao que
+preciso para executar o método.
+
+e IllegalArgumentException -> é a incompatibilidade de retorno e oque o objeto espera.
+
