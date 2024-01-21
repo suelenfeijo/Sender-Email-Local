@@ -41,6 +41,12 @@ public class RegistrationService {
 	);
 		return token;
 	}
+
+
+
+	public String confirmToken(String token) {
+		return null;
+	}
 	
 	
 	
