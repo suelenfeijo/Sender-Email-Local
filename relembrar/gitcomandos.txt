@@ -1,0 +1,11 @@
+git blame src/main/java/com/suelen/springmail/appuser/AppUserService.java
+Esse comando mostra quem fez as últimas modificações em cada linha de um arquivo
+
+
+
+git log -n 10
+para verificar os últimos 10 commits
+
+
+mostra as diferenças entre o repositório local e o repositório remoto
+git diff origin/main
