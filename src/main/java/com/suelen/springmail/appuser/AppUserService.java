@@ -1,5 +1,6 @@
 package com.suelen.springmail.appuser;
 
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 import org.springframework.security.core.userdetails.UserDetails;
@@ -7,6 +8,9 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import com.suelen.springmail.registration.token.ConfirmationToken;
+import com.suelen.springmail.registration.token.ConfirmationTokenService;
 
 import lombok.AllArgsConstructor;
 
@@ -21,7 +25,7 @@ public class AppUserService implements UserDetailsService {
     private final AppUserRepository appUserRepository;
 
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
-//    private final ConfirmationTokenService confirmationTokenService;
+    private final ConfirmationTokenService confirmationTokenService;
 
     @Override
     public UserDetails loadUserByUsername(String email)
@@ -49,27 +53,26 @@ public class AppUserService implements UserDetailsService {
                 .encode(appUser.getPassword());
         appUser.setPassword(encodedPassword);
         appUserRepository.save(appUser);
-        String token = UUID.randomUUID().toString();
         
-        return "email enviado! ";
-    }
-
-
-
-   /*     ConfirmationToken confirmationToken = new ConfirmationToken(
+        
+        /*Método que cria token  */
+        String token = UUID.randomUUID().toString();
+        ConfirmationToken confirmationToken = new ConfirmationToken(
                 token,
                 LocalDateTime.now(),
                 LocalDateTime.now().plusMinutes(15),
                 appUser
-        );*/
-        
-/*
+        );
+        /*Salvando o token enviado para confirmação*/
         confirmationTokenService.saveConfirmationToken(
-                confirmationToken);
-
-//        TODO: SEND EMAIL
-
+        confirmationToken);
+        
+        /*Enviando token*/
         return token;
+    }
+
+
+/*
     }
 
     public int enableAppUser(String email) {
