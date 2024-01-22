@@ -11,7 +11,7 @@
 	<groupId>com.suelen</groupId>
 	<artifactId>spring-mail</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
-	<name>demo</name>
+	<name>senderEmailLocal</name>
 	<description>Simples api de envio de email </description>
 	<properties>
 		<java.version>11</java.version>
