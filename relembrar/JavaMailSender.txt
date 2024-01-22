@@ -22,7 +22,7 @@ o SMTP pode ser hospedado localmente ou em nuvem.
 EX: GMAIL -> NUVEM
 	MAILDEV -> LOCAL
 	
-NPM é ótimo para testar o envio de emails localmente.
+maildev é uma ferramenta para testar o envio de emails localmente.
 
 
 Java Mail Sender 
