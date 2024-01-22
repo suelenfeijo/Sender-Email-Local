@@ -1,4 +1,4 @@
-# LocalHost Email Sending - Mail Dev
+#API - LocalHost Email Sending - Mail Dev
 
 * Spring Boot
 * Spring Security
