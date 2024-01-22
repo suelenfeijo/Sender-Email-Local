@@ -29,13 +29,19 @@ import lombok.Setter;
 public class AppUser implements UserDetails {
 	private static final long serialVersionUID = 1L;
 
+	
+	
+	
+	/*veja discoveryJPA.txt -> pasta relembrar */
 	@Id()
-	 @SequenceGenerator(
+	@SequenceGenerator(
 	            name = "student_sequence",
 	            sequenceName = "student_sequence",
 	            allocationSize = 1
 	    )
-	/*pesquisar generator = "student_sequence" e  GenerationType.SEQUENCE, + SequenceGenerate Inteiro */
+	/*
+	 * em discoveryJPA.txt -> pasta relembrar
+	 * pesquisar generator = "student_sequence" e  GenerationType.SEQUENCE, + SequenceGenerate Inteiro */
 	@GeneratedValue(
             strategy = GenerationType.SEQUENCE,
             generator = "student_sequence"

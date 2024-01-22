@@ -1,0 +1,7 @@
+npm install -g maildev
+
+maildev
+
+se o endereço : http://0.0.0.0:1080/ 
+não funcionar , tente o seu ip com a porta que roda o maildev
+http://127.0.0.1:1080/#/

@@ -1,0 +1,96 @@
+
+em resumo, esse método executa um update 
+aqui "AppUser a" ele está criando um alias (um apelido a)
+e seta o valor em a.enabled = true , WHERE (Onde ?)
+
+aqui -> a.email = 1
+O marcador de posição -> ?1  é 
+usado para passar um parâmetro 
+para a consulta, que neste caso 
+é o endereço de email, é o primeiro (1) parametro recebido,
+então , em resumo,
+
+vai ser setado o campo enabled = true (valor 1 no banco) no primeiro registro 
+onde for encontrado o email passado no parametro
+
+    @Transactional
+    @Modifying
+    @Query("UPDATE AppUser a " +
+            "SET a.enabled = TRUE WHERE a.email = ?1")
+    int enableAppUser(String email);
+    
+    
+     @Transactional
+     
+     Quando um método é anotado com @Transactional, 
+     o Spring cria uma nova transação quando o método
+      é chamado e confirma ou desfaz a transação com
+       base no resultado da execução do método. Isso 
+       significa que, se uma exceção for lançada durante 
+       a execução do método, a transação será desfeita e, 
+       se o método for concluído com sucesso, a transação
+        será confirmada.
+        
+        AJUDA A MANTER O ACID
+        ATOMICIDADE, CONSISTÊNCIA, ISOLAMENTO , DURABILIDADE
+        
+        
+         @Modifying
+         
+          A anotação @Modifying é usada em conjunto com 
+        a anotação @Transactional no Spring Framework
+         para indicar que um método modificará o banco
+          de dados. Essa anotação é usada em métodos que
+           executam operações DML (Data Manipulation Language)
+            como INSERT, UPDATE e DELETE.
+        
+         Sem esta anotação, a operação de atualização não terá efeito,
+          pois o Hibernate considera essas operações como inválidas.
+          
+          Quando um método é anotado com @Modifying, o Spring 
+          Framework sabe que ele precisa executar uma consulta 
+          que modifica o banco de dados e, portanto, ele executa
+           o método dentro de uma transação.
+         
+         
+         
+         @Query
+         
+         A anotação @Query é usada no Spring Framework 
+         para executar consultas personalizadas no banco de dados.
+         
+         
+         
+         
+         
+         
+         
+	@SequenceGenerator(
+	            name = "student_sequence",
+	            sequenceName = "student_sequence",
+	            allocationSize = 100
+	    )
+        @SequenceGenerator
+        
+        é usada para definir um gerador de sequência para gerar
+         valores de chave primária de acordo com as regras dentro do ()
+         
+        SequenceGenerator é para trabalhar com bancos de dados 
+        que possuem a tecnologia de sequence. Um banco de dados
+        que tem isso é o Oracle, postgreSQL também, mas quis usar para praticar.
+        
+        na verdade, até gerou em sequência, porém bugou na 2 tentativa.
+        
+        name = "o nome da sequencia",
+	            sequenceName = "não entendi a diferença entre os dois, deu na mesma",
+	            allocationSize = o valor da chave primária inicial, no caso, aqui, o primeiro
+	            item no banco , vai ter o valor 101 , por que a tabela começa com 1
+	            quando escolhido essa forma.
+	            
+	    em banco mysql, recomendado usar identity para gerar as primary key automáticas
+        
+        
+        
+        
+         
+         

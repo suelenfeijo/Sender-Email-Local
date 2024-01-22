@@ -1,0 +1,38 @@
+SMTP, ou Simple Mail Transfer Protocol, 
+é um protocolo fundamental usado na comunicação 
+via e-mail. Ele define as regras da comunicação
+entre diferentes servidores e redes de computadores
+para transferir e-mails.
+  
+
+temos o CLIENTE SMTP e o SERVIDOR SMTP 
+
+
+O modelo original de SMTP
+foi introduzido em 1982 
+e define que o usuário cria 
+o pedido de conexão, o que 
+o remetente-SMTP iniciar uma conexão
+bidirecional com o receptor-SMTP. Estes
+são, respectivamente, o cliente SMTP e o servidor SMTP.
+
+
+Por fim, é importante mencionar que
+o SMTP pode ser hospedado localmente ou em nuvem.
+EX: GMAIL -> NUVEM
+	MAILDEV -> LOCAL
+	
+NPM é ótimo para testar o envio de emails localmente.
+
+
+Java Mail Sender 
+
+é um recurso fornecido 
+pelo Java para enviar e-mails por meio 
+de um programa Java. Ele usa o Simple 
+Mail Transfer Protocol (SMTP) para enviar e-mails.
+
+MimeMessage -> classe principal para efetuar as ações do java mail sender
+ 
+
+

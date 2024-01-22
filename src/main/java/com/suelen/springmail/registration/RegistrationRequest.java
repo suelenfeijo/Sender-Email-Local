@@ -11,7 +11,7 @@ import lombok.ToString;
 @ToString
 public class RegistrationRequest {
 
-	
+	//Data transference object (DTO) de AppUser
 	 private final String firstName;
 	    private final String lastName;
 	    private final String email;

@@ -33,6 +33,12 @@ public class AppUserService implements UserDetailsService {
         return appUserRepository.findByEmail(email)
                 .orElseThrow(() ->
                         new UsernameNotFoundException(
+                        		/*aqui USER_NOT_FOUND_MSG -> usei (%s)
+                        		 * , chamo o objeto string
+                        		 * e chamo o método .format , esse método,
+                        		 * vai buscar o coringa (%s) em USER_NOT_FOUND_MSG
+                        		 * e vai colocar o valor de (email) onde
+                        		 * (%s) está marcando */
                                 String.format(USER_NOT_FOUND_MSG, email)));
     }
 
@@ -60,7 +66,7 @@ public class AppUserService implements UserDetailsService {
         ConfirmationToken confirmationToken = new ConfirmationToken(
                 token,
                 LocalDateTime.now(),
-                LocalDateTime.now().plusMinutes(15),
+                LocalDateTime.now().plusMinutes(1),
                 appUser
         );
         /*Salvando o token enviado para confirmação*/
@@ -72,10 +78,10 @@ public class AppUserService implements UserDetailsService {
     }
 
 
-/*
-    }
+
+    
 
     public int enableAppUser(String email) {
         return appUserRepository.enableAppUser(email);
-    }*/
+    }
 }
